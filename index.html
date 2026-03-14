@@ -14,6 +14,7 @@
   --bg:#050a14;
   --panel:#0b1a30;
   --card:#0d1f38;
+  --card-back:#0f1520;
   --border:rgba(0,220,255,0.18);
   --glow:#00dcff;
   --orange:#ff6a2b;
@@ -55,233 +56,183 @@ canvas.bg{position:fixed;inset:0;z-index:0}
   background:var(--panel);
   margin-bottom:16px;gap:8px;flex-wrap:wrap;
 }
-
 .bar .mid{
   font-family:'Orbitron','Arial Black',sans-serif;
-  font-size:11px;font-weight:700;
-  letter-spacing:2px;color:var(--glow);
+  font-size:11px;font-weight:700;letter-spacing:2px;color:var(--glow);
 }
-
 .dots{display:flex;gap:6px;align-items:center}
 .dt{width:7px;height:7px;border-radius:50%;animation:pu 2s infinite}
 .dt.g{background:var(--green);box-shadow:0 0 6px var(--green)}
 .dt.o{background:var(--orange);box-shadow:0 0 6px var(--orange);animation-delay:.5s}
 .dt.b{background:var(--glow);box-shadow:0 0 6px var(--glow);animation-delay:1s}
 @keyframes pu{0%,100%{opacity:1}50%{opacity:.35}}
-
 .bar .clk{font-size:10px;color:var(--lo);letter-spacing:1px}
 
 /* HERO */
 .hero{text-align:center;padding:24px 0 16px}
-
 .orb{width:150px;height:150px;margin:0 auto 16px;position:relative}
 .orb::before{content:'';position:absolute;inset:0;border:1.5px solid rgba(0,220,255,.2);border-radius:50%;animation:sp 20s linear infinite}
 .orb::after{content:'';position:absolute;inset:12px;border:1px dashed rgba(0,220,255,.1);border-radius:50%;animation:sp 15s linear infinite reverse}
 @keyframes sp{to{transform:rotate(360deg)}}
-
 .sat{
   position:absolute;width:8px;height:8px;
-  background:var(--orange);border-radius:50%;
-  box-shadow:0 0 10px var(--orange);
+  background:var(--orange);border-radius:50%;box-shadow:0 0 10px var(--orange);
   top:-4px;left:50%;margin-left:-4px;
-  animation:om 6s linear infinite;
-  transform-origin:4px 79px;
+  animation:om 6s linear infinite;transform-origin:4px 79px;
 }
 @keyframes om{to{transform:rotate(360deg)}}
-
 .n20{
-  position:absolute;top:50%;left:50%;
-  transform:translate(-50%,-50%);
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
   font-family:'Orbitron','Arial Black',sans-serif;
-  font-size:52px;font-weight:900;
-  color:var(--glow);
+  font-size:52px;font-weight:900;color:var(--glow);
   text-shadow:0 0 30px rgba(0,220,255,.3);
   animation:pop .8s cubic-bezier(.34,1.56,.64,1) both;
 }
 @keyframes pop{0%{transform:translate(-50%,-50%) scale(0);opacity:0}100%{transform:translate(-50%,-50%) scale(1);opacity:1}}
-
 .hero h1{
   font-family:'Orbitron','Arial Black',sans-serif;
-  font-size:20px;font-weight:700;
-  letter-spacing:1px;color:var(--hi);
-  margin-bottom:4px;
-  animation:fu .6s .3s both;
+  font-size:20px;font-weight:700;letter-spacing:1px;color:var(--hi);
+  margin-bottom:4px;animation:fu .6s .3s both;
 }
-
 .hero .tg{
   font-family:'Space Grotesk','Helvetica Neue',sans-serif;
-  font-size:14px;color:var(--mid);
-  animation:fu .6s .5s both;
+  font-size:14px;color:var(--mid);animation:fu .6s .5s both;
 }
-
 @keyframes fu{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 
 /* TELEMETRY */
-.tel{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:6px;margin:16px 0;
-}
-
-.tc{
-  border:1px solid var(--border);border-radius:6px;
-  padding:10px 6px;background:var(--panel);text-align:center;
-}
-.tc .tl{
-  font-family:'Space Mono','Courier New',monospace;
-  font-size:9px;letter-spacing:1px;color:var(--lo);
-  text-transform:uppercase;margin-bottom:4px;
-}
-.tc .tv{
-  font-family:'Orbitron','Arial Black',sans-serif;
-  font-size:13px;font-weight:700;
-}
-.tv.gr{color:var(--green)}.tv.or{color:var(--orange)}
-.tv.go{color:var(--gold)}.tv.cy{color:var(--glow)}
+.tel{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:16px 0}
+.tc{border:1px solid var(--border);border-radius:6px;padding:10px 6px;background:var(--panel);text-align:center}
+.tc .tl{font-family:'Space Mono','Courier New',monospace;font-size:9px;letter-spacing:1px;color:var(--lo);text-transform:uppercase;margin-bottom:4px}
+.tc .tv{font-family:'Orbitron','Arial Black',sans-serif;font-size:13px;font-weight:700}
+.tv.gr{color:var(--green)}.tv.or{color:var(--orange)}.tv.go{color:var(--gold)}.tv.cy{color:var(--glow)}
 
 /* PANEL */
 .pnl{
   border:1px solid var(--border);border-radius:8px;
-  background:var(--panel);
-  padding:16px 18px;margin:16px 0;
+  background:var(--panel);padding:16px 18px;margin:16px 0;
   position:relative;overflow:hidden;
 }
-.pnl::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent,var(--glow),transparent);opacity:.5;
-}
-.pnl .pl{
-  font-family:'Orbitron','Arial Black',sans-serif;
-  font-size:9px;font-weight:700;
-  letter-spacing:2px;color:var(--glow);
-  margin-bottom:10px;
-}
-.pnl p{
-  font-family:'Space Grotesk','Helvetica Neue',sans-serif;
-  font-size:14px;line-height:1.75;color:var(--mid);
-}
+.pnl::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--glow),transparent);opacity:.5}
+.pnl .pl{font-family:'Orbitron','Arial Black',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;color:var(--glow);margin-bottom:10px}
+.pnl p{font-family:'Space Grotesk','Helvetica Neue',sans-serif;font-size:14px;line-height:1.75;color:var(--mid)}
 .pnl .hl{color:var(--orange);font-weight:600}
 
-/* CHECKPOINT INFO */
-.cpinfo{
-  display:flex;align-items:center;justify-content:space-between;
-  margin:16px 0 8px;padding:0 4px;
-}
-.cpinfo .cp{
-  font-family:'Orbitron','Arial Black',sans-serif;
-  font-size:11px;letter-spacing:2px;color:var(--glow);font-weight:700;
-}
+/* CHECKPOINT */
+.cpinfo{display:flex;align-items:center;justify-content:space-between;margin:16px 0 8px;padding:0 4px}
+.cpinfo .cp{font-family:'Orbitron','Arial Black',sans-serif;font-size:11px;letter-spacing:2px;color:var(--glow);font-weight:700}
 .cpinfo .et{font-size:11px;color:var(--lo)}
 
-/* CARD — slide-down reveal, fully opaque */
+/* =========== FLIP CARD =========== */
 .card-area{margin:0 0 12px}
 
-.crd{
+.flip-container{
+  perspective:1200px;
+  -webkit-perspective:1200px;
+}
+
+.flip-card{
+  position:relative;
+  transition:height 0.4s ease;
+  transform-style:preserve-3d;
+  -webkit-transform-style:preserve-3d;
+}
+
+.flip-inner{
+  width:100%;height:100%;
+  transition:transform 0.65s cubic-bezier(0.4,0,0.2,1);
+  transform-style:preserve-3d;
+  -webkit-transform-style:preserve-3d;
+  position:relative;
+  cursor:pointer;
+}
+
+.flip-inner.flipped{
+  transform:rotateY(180deg);
+  -webkit-transform:rotateY(180deg);
+}
+
+.face{
+  position:absolute;top:0;left:0;width:100%;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
   border:1px solid var(--border);border-radius:8px;
+  overflow:hidden;
+}
+
+.face-front{
   background:var(--card);
-  overflow:hidden;position:relative;
-  transition:border-color .3s;
+  z-index:2;
 }
 
-.crd.open{border-color:rgba(255,106,43,.3)}
-
-.crd::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent,var(--glow),transparent);
-  opacity:.5;transition:background .3s;z-index:1;
+.face-back{
+  background:var(--card-back);
+  transform:rotateY(180deg);
+  -webkit-transform:rotateY(180deg);
+  border-color:rgba(255,106,43,.3);
 }
-.crd.open::before{
+
+.face::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;z-index:1;
+  background:linear-gradient(90deg,transparent,var(--glow),transparent);opacity:.5;
+}
+.face-back::before{
   background:linear-gradient(90deg,transparent,var(--orange),transparent);
 }
 
-/* Question part */
-.crd-q-area{
-  padding:20px 18px;
-}
+.face-pad{padding:20px 18px}
 
-.crd-head{
-  display:flex;align-items:center;margin-bottom:10px;
-}
-
+.crd-head{display:flex;align-items:center;margin-bottom:10px}
 .crd-tag{
   font-family:'Orbitron','Arial Black',sans-serif;
-  font-size:9px;font-weight:700;
-  letter-spacing:2px;color:var(--glow);
-  padding:4px 10px;
-  border:1px solid rgba(0,220,255,.25);border-radius:4px;
-  display:inline-block;
+  font-size:9px;font-weight:700;letter-spacing:2px;color:var(--glow);
+  padding:4px 10px;border:1px solid rgba(0,220,255,.25);border-radius:4px;
 }
-
 .crd-year{
   font-family:'Orbitron','Arial Black',sans-serif;
-  font-size:36px;font-weight:900;
-  color:var(--glow);
-  text-shadow:0 0 15px rgba(0,220,255,.2);
-  margin-bottom:8px;
+  font-size:36px;font-weight:900;color:var(--glow);
+  text-shadow:0 0 15px rgba(0,220,255,.2);margin-bottom:8px;
 }
-
 .crd-question{
   font-family:'Space Grotesk','Helvetica Neue',sans-serif;
   font-size:16px;line-height:1.6;color:var(--hi);
 }
-
 .crd-tap{
-  display:flex;align-items:center;gap:6px;
-  margin-top:12px;
+  display:flex;align-items:center;gap:6px;margin-top:14px;
   font-family:'Space Mono','Courier New',monospace;
   font-size:11px;color:var(--lo);
-  transition:all .3s;
 }
 .crd-tap .blink{animation:pu 1.5s infinite;color:var(--glow);font-size:13px}
-.crd.open .crd-tap{opacity:0;height:0;margin:0;overflow:hidden;padding:0}
-
-/* Answer part */
-.crd-a-area{
-  max-height:0;overflow:hidden;
-  transition:max-height .5s ease,padding .4s ease;
-  padding:0 18px;
-  background:rgba(255,106,43,0.04);
-}
-
-.crd.open .crd-a-area{
-  max-height:500px;
-  padding:16px 18px 20px;
-  border-top:1px solid rgba(255,106,43,.15);
-}
 
 .ans-label{
   font-family:'Orbitron','Arial Black',sans-serif;
-  font-size:9px;font-weight:700;
-  letter-spacing:2px;color:var(--orange);
-  margin-bottom:8px;
+  font-size:9px;font-weight:700;letter-spacing:2px;color:var(--orange);margin-bottom:10px;
 }
-
 .ans-value{
   font-family:'Orbitron','Arial Black',sans-serif;
-  font-size:22px;font-weight:800;
-  color:var(--gold);
+  font-size:22px;font-weight:800;color:var(--gold);
   text-shadow:0 0 12px rgba(255,215,64,.15);
-  margin-bottom:8px;
-  word-break:break-word;
-  line-height:1.3;
+  margin-bottom:10px;word-break:break-word;line-height:1.3;
 }
-
 .ans-comment{
   font-family:'Space Grotesk','Helvetica Neue',sans-serif;
-  font-size:13px;line-height:1.65;color:var(--mid);
-  font-style:italic;
+  font-size:13px;line-height:1.65;color:var(--mid);font-style:italic;
+}
+
+/* Invisible measurer */
+.measurer{
+  position:absolute;visibility:hidden;pointer-events:none;
+  width:100%;left:0;top:0;
 }
 
 /* NAV BUTTONS */
 .nav{display:flex;gap:8px;justify-content:center;margin:14px 0}
-
 .nb{
-  font-family:'Space Mono','Courier New',monospace;
-  font-size:11px;letter-spacing:1px;
-  text-transform:uppercase;
+  font-family:'Space Mono','Courier New',monospace;font-size:11px;
+  letter-spacing:1px;text-transform:uppercase;
   background:var(--panel);color:var(--glow);
   border:1px solid rgba(0,220,255,.3);border-radius:6px;
-  padding:12px 20px;cursor:pointer;
-  transition:all .2s;
+  padding:12px 20px;cursor:pointer;transition:all .2s;
   -webkit-tap-highlight-color:transparent;
 }
 .nb:hover,.nb:active{background:rgba(0,220,255,.1);border-color:var(--glow)}
@@ -291,55 +242,17 @@ canvas.bg{position:fixed;inset:0;z-index:0}
 /* FINALE */
 .fin{text-align:center;padding:24px 8px;opacity:0;transition:opacity 1s}
 .fin.vis{opacity:1}
-
-.fin-done{
-  font-family:'Orbitron','Arial Black',sans-serif;
-  font-size:11px;font-weight:700;
-  letter-spacing:4px;color:var(--green);
-  margin-bottom:20px;
-}
-
-.fin-grid{
-  display:grid;grid-template-columns:repeat(2,1fr);
-  gap:8px;margin:16px 0 20px;
-}
-
-.fg{
-  border:1px solid var(--border);border-radius:8px;
-  background:var(--panel);padding:14px 8px;
-  position:relative;overflow:hidden;
-}
+.fin-done{font-family:'Orbitron','Arial Black',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;color:var(--green);margin-bottom:20px}
+.fin-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:16px 0 20px}
+.fg{border:1px solid var(--border);border-radius:8px;background:var(--panel);padding:14px 8px;position:relative;overflow:hidden}
 .fg::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--glow),transparent);opacity:.3}
-.fg .fv{
-  font-family:'Orbitron','Arial Black',sans-serif;
-  font-size:22px;font-weight:800;color:var(--glow);
-}
-.fg .fl{
-  font-family:'Space Mono','Courier New',monospace;
-  font-size:9px;letter-spacing:1.5px;color:var(--lo);
-  text-transform:uppercase;margin-top:4px;
-}
-
-.fin h2{
-  font-family:'Orbitron','Arial Black',sans-serif;
-  font-size:20px;font-weight:800;
-  color:var(--hi);margin:20px 0 12px;letter-spacing:1px;
-}
-
-.fin .msg{
-  font-family:'Space Grotesk','Helvetica Neue',sans-serif;
-  font-size:15px;line-height:1.85;color:var(--mid);
-  max-width:580px;margin:0 auto 20px;text-align:left;
-}
-
-.fin .so{
-  font-family:'Orbitron','Arial Black',sans-serif;
-  font-size:9px;letter-spacing:3px;color:var(--lo);
-  margin-top:20px;
-}
+.fg .fv{font-family:'Orbitron','Arial Black',sans-serif;font-size:22px;font-weight:800;color:var(--glow)}
+.fg .fl{font-family:'Space Mono','Courier New',monospace;font-size:9px;letter-spacing:1.5px;color:var(--lo);text-transform:uppercase;margin-top:4px}
+.fin h2{font-family:'Orbitron','Arial Black',sans-serif;font-size:20px;font-weight:800;color:var(--hi);margin:20px 0 12px;letter-spacing:1px}
+.fin .msg{font-family:'Space Grotesk','Helvetica Neue',sans-serif;font-size:15px;line-height:1.85;color:var(--mid);max-width:580px;margin:0 auto 20px;text-align:left}
+.fin .so{font-family:'Orbitron','Arial Black',sans-serif;font-size:9px;letter-spacing:3px;color:var(--lo);margin-top:20px}
 
 canvas.fx{position:fixed;inset:0;pointer-events:none;z-index:99}
-
 .hidden{display:none!important}
 
 @media(max-width:420px){
@@ -398,10 +311,17 @@ canvas.fx{position:fixed;inset:0;pointer-events:none;z-index:99}
   </div>
 
   <div class="card-area" id="ca">
-    <div class="crd" id="crd">
-      <div class="crd-q-area" id="qArea"></div>
-      <div class="crd-a-area" id="aArea"></div>
+    <div class="flip-container">
+      <div class="flip-card" id="flipCard">
+        <div class="flip-inner" id="flipInner">
+          <div class="face face-front" id="faceFront"></div>
+          <div class="face face-back" id="faceBack"></div>
+        </div>
+      </div>
     </div>
+    <!-- hidden measurers: render content offscreen to get real height -->
+    <div class="measurer" id="measureFront" aria-hidden="true"></div>
+    <div class="measurer" id="measureBack" aria-hidden="true"></div>
   </div>
 
   <div class="nav" id="nav">
@@ -412,16 +332,13 @@ canvas.fx{position:fixed;inset:0;pointer-events:none;z-index:99}
 
   <div class="fin hidden" id="fin">
     <div class="fin-done">/// Миссия выполнена ///</div>
-
     <div class="fin-grid">
       <div class="fg"><div class="fv" data-t="20" data-s="">0</div><div class="fl">лет в полёте</div></div>
       <div class="fg"><div class="fv" data-t="183" data-s=" млрд">0</div><div class="fl">выручка ₽</div></div>
       <div class="fg"><div class="fv" data-t="700" data-s="+">0</div><div class="fl">точек по РФ</div></div>
       <div class="fg"><div class="fv" data-t="2" data-s=" млн">0</div><div class="fl">товаров</div></div>
     </div>
-
     <h2>Орбита достигнута!</h2>
-
     <div class="msg">
       Виктор, команда — с двадцатилетием!<br><br>
       В 2006 году вы стартовали из комнаты общежития МФТИ со 100 тысячами рублей и мечтой. Сегодня ВсеИнструменты.ру — крупнейший онлайн DIY-игрок страны, публичная компания на Мосбирже и топ-5 в мире по трафику.<br><br>
@@ -430,14 +347,13 @@ canvas.fx{position:fixed;inset:0;pointer-events:none;z-index:99}
       Пусть следующие 20 лет будут ещё масштабнее — а инструментов для этого у вас точно хватит.<br><br>
       С огромным уважением и поздравлениями!
     </div>
-
     <div class="so">/// Передано с орбиты восхищения ///</div>
   </div>
 
 </div>
 
 <script>
-/* Stars */
+/* === Stars === */
 !function(){
   var c=document.getElementById('sf'),x=c.getContext('2d');
   function r(){c.width=innerWidth;c.height=innerHeight}
@@ -446,24 +362,17 @@ canvas.fx{position:fixed;inset:0;pointer-events:none;z-index:99}
   !function d(){x.clearRect(0,0,c.width,c.height);for(var i=0;i<s.length;i++){var p=s[i];p.a+=p.d;if(p.a>1)p.a=0;var o=.3+Math.sin(p.a*3.14)*.7;x.beginPath();x.arc(p.x,p.y,p.r,0,6.28);x.fillStyle='rgba(180,220,255,'+o+')';x.fill()}requestAnimationFrame(d)}();
 }();
 
-/* Clock */
+/* === Clock === */
 !function(){
   var e=document.getElementById('clk');
-  !function t(){
-    var n=new Date();
-    var h=('0'+n.getHours()).slice(-2);
-    var m=('0'+n.getMinutes()).slice(-2);
-    var s=('0'+n.getSeconds()).slice(-2);
-    e.textContent='T+20y '+h+':'+m+':'+s;
-    setTimeout(t,1000);
-  }();
+  !function t(){var n=new Date();e.textContent='T+20y '+('0'+n.getHours()).slice(-2)+':'+('0'+n.getMinutes()).slice(-2)+':'+('0'+n.getSeconds()).slice(-2);setTimeout(t,1000)}();
 }();
 
-/* Facts */
+/* === Facts === */
 var F=[
+  {y:'2006',q:'Кто запустил миссию?',a:'Студенты МФТИ \u2014 Виктор Кузнецов и Николай Гудовских',c:'Физтех: кузница учёных, предпринимателей и владельцев шуруповёртов.'},
   {y:'2006',q:'Каким был стартовый капитал будущей компании на 183 млрд?',a:'100 000 \u20bd',c:'Рост в миллион раз. Когда говорят \u00abвложи в себя\u00bb \u2014 это про Виктора и Николая.'},
   {y:'2006',q:'Где располагался первый \u00abсклад\u00bb ВсеИнструменты?',a:'Общежитие МФТИ',c:'Самая элитная логистическая база \u2014 между конспектами по физике и чайником.'},
-  {y:'2006',q:'Кто запустил миссию?',a:'Студенты МФТИ \u2014 Виктор Кузнецов и Николай Гудовских',c:'Физтех: кузница учёных, предпринимателей и владельцев шуруповёртов.'},
   {y:'2009',q:'Что стало \u00abпервой ступенью\u00bb офлайн-экспансии?',a:'Первый магазин в Москве + колл-центр в Коврове',c:'Общежитие наконец выдохнуло. А Ковров стал новой Кремниевой долиной.'},
   {y:'2011',q:'До какого оборота разогналась \u00abракета\u00bb за 5 лет?',a:'~3,5 млрд \u20bd',c:'25 000 товаров, 20+ городов и внимание инвесторов. Скорость набрана.'},
   {y:'2012',q:'Сколько Zoom Capital заплатил за 40%?',a:'$27 000 000',c:'Инвесторов нашли через выпускников МФТИ. Networking по-физтеховски.'},
@@ -483,124 +392,161 @@ var F=[
   {y:'2026',q:'Что мы празднуем прямо сейчас?',a:'20 ЛЕТ НА ОРБИТЕ!',c:'От 100K до 183 млрд и IPO. Это не бизнес \u2014 это космос.'},
 ];
 
-var cur=0;
-var crd=document.getElementById('crd');
-var qArea=document.getElementById('qArea');
-var aArea=document.getElementById('aArea');
+var cur = 0;
+var isFlipped = false;
+var flipCard = document.getElementById('flipCard');
+var flipInner = document.getElementById('flipInner');
+var faceFront = document.getElementById('faceFront');
+var faceBack = document.getElementById('faceBack');
+var measureFront = document.getElementById('measureFront');
+var measureBack = document.getElementById('measureBack');
 
-function render(){
-  var f=F[cur];
-  crd.className='crd';
-
-  qArea.innerHTML=
-    '<div class="crd-head"><div class="crd-tag">Checkpoint '+pad(cur+1)+' </div></div>'+
-    '<div class="crd-year">'+f.y+'</div>'+
-    '<div class="crd-question">'+f.q+'</div>'+
-    '<div class="crd-tap"><span class="blink">&#9654;</span> нажмите для раскрытия</div>';
-
-  aArea.innerHTML=
-    '<div class="ans-label">/// Данные рассекречены ///</div>'+
-    '<div class="ans-value">'+f.a+'</div>'+
-    '<div class="ans-comment">'+f.c+'</div>';
-
-  document.getElementById('cp').textContent='Checkpoint '+pad(cur+1)+' / 20';
-  document.getElementById('et').textContent='до финала: '+(19-cur);
-  document.getElementById('pb').disabled=(cur===0);
-  document.getElementById('xb').textContent=(cur===F.length-1)?'финал \u2192':'дальше \u2192';
-  document.getElementById('fb').textContent='открыть';
+function frontHTML(f, i) {
+  return '<div class="face-pad">' +
+    '<div class="crd-head"><div class="crd-tag">Checkpoint ' + pad(i + 1) + '</div></div>' +
+    '<div class="crd-year">' + f.y + '</div>' +
+    '<div class="crd-question">' + f.q + '</div>' +
+    '<div class="crd-tap"><span class="blink">&#9654;</span> нажмите, чтобы перевернуть</div>' +
+    '</div>';
 }
 
-function pad(n){return n<10?'0'+n:''+n}
+function backHTML(f) {
+  return '<div class="face-pad">' +
+    '<div class="ans-label">/// Данные рассекречены ///</div>' +
+    '<div class="ans-value">' + f.a + '</div>' +
+    '<div class="ans-comment">' + f.c + '</div>' +
+    '</div>';
+}
 
-function flip(){
-  var isOpen=crd.classList.contains('open');
-  if(isOpen){
-    crd.classList.remove('open');
-    document.getElementById('fb').textContent='открыть';
-  }else{
-    crd.classList.add('open');
-    document.getElementById('fb').textContent='скрыть';
+function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+function setCardHeight() {
+  var f = F[cur];
+  // Render into hidden measurers to get real content height
+  measureFront.innerHTML = '<div style="border:1px solid transparent;border-radius:8px;">' + frontHTML(f, cur) + '</div>';
+  measureBack.innerHTML = '<div style="border:1px solid transparent;border-radius:8px;">' + backHTML(f) + '</div>';
+
+  // Force layout
+  var hFront = measureFront.firstChild.offsetHeight;
+  var hBack = measureBack.firstChild.offsetHeight;
+  var h = Math.max(hFront, hBack);
+
+  flipCard.style.height = h + 'px';
+  faceFront.style.height = h + 'px';
+  faceBack.style.height = h + 'px';
+}
+
+function render() {
+  var f = F[cur];
+  isFlipped = false;
+  flipInner.classList.remove('flipped');
+
+  faceFront.innerHTML = frontHTML(f, cur);
+  faceBack.innerHTML = backHTML(f);
+
+  // Measure after a tick so fonts are applied
+  setTimeout(setCardHeight, 50);
+
+  document.getElementById('cp').textContent = 'Checkpoint ' + pad(cur + 1) + ' / 20';
+  document.getElementById('et').textContent = 'до финала: ' + (19 - cur);
+  document.getElementById('pb').disabled = (cur === 0);
+  document.getElementById('xb').textContent = (cur === F.length - 1) ? 'финал \u2192' : 'дальше \u2192';
+  document.getElementById('fb').textContent = 'открыть';
+}
+
+function flip() {
+  isFlipped = !isFlipped;
+  if (isFlipped) {
+    flipInner.classList.add('flipped');
+    document.getElementById('fb').textContent = 'обратно';
+  } else {
+    flipInner.classList.remove('flipped');
+    document.getElementById('fb').textContent = 'открыть';
   }
 }
 
-crd.addEventListener('click',function(e){
-  if(e.target.closest('.nb'))return;
+flipInner.addEventListener('click', function(e) {
+  if (e.target.closest('.nb')) return;
   flip();
 });
 
-function next(){
-  if(cur<F.length-1){
-    cur++;render();
-    document.getElementById('ca').scrollIntoView({behavior:'smooth',block:'center'});
-  }else{
+function next() {
+  if (cur < F.length - 1) {
+    cur++;
+    render();
+    document.getElementById('ca').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } else {
     finale();
   }
 }
 
-function prev(){if(cur>0){cur--;render()}}
+function prev() {
+  if (cur > 0) { cur--; render(); }
+}
 
-function finale(){
+// Recalculate on resize (orientation change)
+window.addEventListener('resize', function() {
+  setCardHeight();
+});
+
+function finale() {
   document.getElementById('nav').classList.add('hidden');
   document.getElementById('ca').classList.add('hidden');
   document.querySelector('.cpinfo').classList.add('hidden');
 
-  var f=document.getElementById('fin');
+  var f = document.getElementById('fin');
   f.classList.remove('hidden');
-  setTimeout(function(){f.classList.add('vis')},80);
+  setTimeout(function() { f.classList.add('vis'); }, 80);
   cntrs();
   party();
 }
 
-function cntrs(){
-  var els=document.querySelectorAll('.fv');
-  for(var i=0;i<els.length;i++){
-    (function(el){
-      var t=parseFloat(el.getAttribute('data-t'));
-      var s=el.getAttribute('data-s')||'';
-      var dur=2000,st=Date.now();
-      !function k(){
-        var p=Math.min((Date.now()-st)/dur,1);
-        var e=1-Math.pow(1-p,3);
-        var v=e*t;
-        if(t<100){
-          el.textContent=(v<t?v.toFixed(1):v.toFixed(0))+s;
-        }else{
-          el.textContent=Math.floor(v).toLocaleString('ru-RU')+s;
-        }
-        if(p<1)requestAnimationFrame(k);
+function cntrs() {
+  var els = document.querySelectorAll('.fv');
+  for (var i = 0; i < els.length; i++) {
+    (function(el) {
+      var t = parseFloat(el.getAttribute('data-t'));
+      var s = el.getAttribute('data-s') || '';
+      var dur = 2000, st = Date.now();
+      !function k() {
+        var p = Math.min((Date.now() - st) / dur, 1);
+        var e = 1 - Math.pow(1 - p, 3);
+        var v = e * t;
+        el.textContent = (t < 100 ? (v < t ? v.toFixed(1) : v.toFixed(0)) : Math.floor(v).toLocaleString('ru-RU')) + s;
+        if (p < 1) requestAnimationFrame(k);
       }();
     })(els[i]);
   }
 }
 
-function party(){
-  var c=document.getElementById('fx'),x=c.getContext('2d');
-  c.width=innerWidth;c.height=innerHeight;
-  var cl=['#00dcff','#ff6a2b','#ffd740','#00e676','#e040fb','#ff5252'];
-  var ps=[];
-  for(var i=0;i<130;i++){
+function party() {
+  var c = document.getElementById('fx'), x = c.getContext('2d');
+  c.width = innerWidth; c.height = innerHeight;
+  var cl = ['#00dcff', '#ff6a2b', '#ffd740', '#00e676', '#e040fb', '#ff5252'];
+  var ps = [];
+  for (var i = 0; i < 130; i++) {
     ps.push({
-      x:Math.random()*c.width,y:-20-Math.random()*350,
-      w:3+Math.random()*4,h:7+Math.random()*8,
-      col:cl[Math.floor(Math.random()*cl.length)],
-      vx:(Math.random()-.5)*2.5,vy:2+Math.random()*3,
-      rot:Math.random()*6.28,rv:(Math.random()-.5)*.12,o:1
+      x: Math.random() * c.width, y: -20 - Math.random() * 350,
+      w: 3 + Math.random() * 4, h: 7 + Math.random() * 8,
+      col: cl[Math.floor(Math.random() * cl.length)],
+      vx: (Math.random() - .5) * 2.5, vy: 2 + Math.random() * 3,
+      rot: Math.random() * 6.28, rv: (Math.random() - .5) * .12, o: 1
     });
   }
-  var fr=0;
-  !function a(){
-    x.clearRect(0,0,c.width,c.height);var ok=false;
-    for(var i=0;i<ps.length;i++){
-      var p=ps[i];if(p.o<=0)continue;ok=true;
-      p.x+=p.vx;p.y+=p.vy;p.rot+=p.rv;p.vy+=.035;
-      if(p.y>c.height*.8)p.o-=.02;
-      x.save();x.translate(p.x,p.y);x.rotate(p.rot);
-      x.globalAlpha=Math.max(0,p.o);x.fillStyle=p.col;
-      x.fillRect(-p.w/2,-p.h/2,p.w,p.h);x.restore();
+  var fr = 0;
+  !function a() {
+    x.clearRect(0, 0, c.width, c.height); var ok = false;
+    for (var i = 0; i < ps.length; i++) {
+      var p = ps[i]; if (p.o <= 0) continue; ok = true;
+      p.x += p.vx; p.y += p.vy; p.rot += p.rv; p.vy += .035;
+      if (p.y > c.height * .8) p.o -= .02;
+      x.save(); x.translate(p.x, p.y); x.rotate(p.rot);
+      x.globalAlpha = Math.max(0, p.o); x.fillStyle = p.col;
+      x.fillRect(-p.w / 2, -p.h / 2, p.w, p.h); x.restore();
     }
     fr++;
-    if(ok&&fr<320)requestAnimationFrame(a);
-    else x.clearRect(0,0,c.width,c.height);
+    if (ok && fr < 320) requestAnimationFrame(a);
+    else x.clearRect(0, 0, c.width, c.height);
   }();
 }
 
